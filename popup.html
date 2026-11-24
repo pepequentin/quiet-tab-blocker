@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Quiet Tab Blocker</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="img">
+            <path d="M12 2.75 19 5.5v5.42c0 4.48-2.84 8.55-7 10.33-4.16-1.78-7-5.85-7-10.33V5.5L12 2.75Z" />
+            <path d="M8.8 12h6.4" />
+          </svg>
+        </div>
+        <div class="brand-copy">
+          <h1>Quiet</h1>
+          <p>Tab Blocker</p>
+        </div>
+        <label class="switch" aria-label="Activer ou désactiver le blocage">
+          <input id="enabled-toggle" type="checkbox" />
+          <span class="switch-track"><span class="switch-thumb"></span></span>
+        </label>
+      </header>
+
+      <section class="status-card" aria-live="polite">
+        <span class="status-dot"></span>
+        <div>
+          <strong id="status-title">Blocage actif</strong>
+          <span id="status-caption">0 site protégé</span>
+        </div>
+      </section>
+
+      <section class="blacklist-section" aria-labelledby="blacklist-title">
+        <div class="section-heading">
+          <h2 id="blacklist-title">Liste noire</h2>
+          <span id="site-count" class="count-badge">0</span>
+        </div>
+
+        <form id="add-form" class="add-form" novalidate>
+          <label class="sr-only" for="site-input">Domaine à bloquer</label>
+          <input
+            id="site-input"
+            type="text"
+            inputmode="url"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="exemple.com"
+          />
+          <button class="add-button" type="submit" aria-label="Ajouter ce domaine">
+            <svg viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M10 4v12M4 10h12" />
+            </svg>
+          </button>
+        </form>
+
+        <p id="form-message" class="form-message" role="status"></p>
+
+        <button id="add-current" class="current-site-button" type="button">
+          <svg viewBox="0 0 20 20" aria-hidden="true">
+            <circle cx="10" cy="10" r="6.5" />
+            <path d="M3.5 10h13M10 3.5c2 2 2 11 0 13M10 3.5c-2 2-2 11 0 13" />
+          </svg>
+          <span>Ajouter le site actuel</span>
+        </button>
+
+        <div id="empty-state" class="empty-state">
+          <div class="empty-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M6 7.5h12M9 4.5h6M8 7.5l.55 11h6.9l.55-11M10 10.5v5M14 10.5v5" />
+            </svg>
+          </div>
+          <strong>Liste vide</strong>
+          <span>Ajoutez un domaine pour rester tranquille.</span>
+        </div>
+
+        <ul id="blacklist" class="site-list" aria-label="Sites sur liste noire"></ul>
+      </section>
+
+      <footer>
+        Les nouveaux onglets ouverts par ces sites seront bloqués.
+      </footer>
+    </main>
+
+    <script src="shared.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
