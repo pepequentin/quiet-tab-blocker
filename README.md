@@ -2,6 +2,9 @@
 
 Une extension légère pour Brave et Google Chrome qui empêche les sites de votre liste noire d’ouvrir de nouveaux onglets ou fenêtres.
 
+<img width="253" height="393" alt="Capture d&#39;écran 2026-11-24 110806" src="https://github.com/user-attachments/assets/a5271c0f-322a-4157-806c-4efebe5b224f" />
+
+
 ## Fonctionnalités
 
 - interrupteur global on/off ;
